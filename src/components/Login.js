@@ -42,7 +42,9 @@ const Login = () => {
         <div>
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" id="email" onChange={handleChange} value={email} />
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
+        <br />
         <div>
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" onChange={handleChange} value={password} />
