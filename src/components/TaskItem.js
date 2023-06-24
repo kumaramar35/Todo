@@ -73,7 +73,7 @@ const TaskItem = ({ task, overDue = false }) => {
 
       </div>
       {modal && <TaskForm key={task.id} modal={modal}
-        defaultTask={task} toggle={toggle} task={task} type="Edit" />}
+        defaultTask={task} toggle={toggle}  task={task} type="Edit" />}
     </>
   );
 };

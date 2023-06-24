@@ -97,16 +97,16 @@ const TodoList = ({ tasks }) => {
         {categorisedTasks.thisWeek.filter(task => !task.completed).filter(task => !categorisedTasks.today.includes(task)).length > 0 && <div className="tasks-container-header">
           <h3>This Week</h3>
           {/* filter today tasks */}
-          {categorisedTasks.thisWeek.filter(task => !categorisedTasks.today.includes(task)).map((task, index) => <TaskItem task={task} index={index} key={index} />)}</div>}
+          {categorisedTasks.thisWeek.filter(task => !categorisedTasks.today.includes(task)).map((task, index) => <TaskItem task={task} index={index}  key={index} />)}</div>}
 
         {/* Overdue Tasks */}
         {categorisedTasks.overDue.length > 0 && <div className="tasks-container-header">
           <h3>Overdue</h3>
-          {categorisedTasks.overDue.map((task, index) => <TaskItem task={task} index={index} key={index} overDue={true} />)}</div>}
+          {categorisedTasks.overDue.map((task, index) => <TaskItem task={task} index={index}  key={index} overDue={true} />)}</div>}
         {/* Rest of the incomplete tasks */}
         {sortedTasks.length > 0 &&
           <div className='tasks-container-header'>
-            {sortedTasks.filter(task => !task.completed).filter(task => !categorisedTasks.today.includes(task)).filter(task => !categorisedTasks.thisWeek.includes(task)).filter(task => !categorisedTasks.overDue.includes(task)).map((task, index) => <TaskItem task={task} index={index} key={index} />)} </div>}
+            {sortedTasks.filter(task => !task.completed).filter(task => !categorisedTasks.today.includes(task)).filter(task => !categorisedTasks.thisWeek.includes(task)).filter(task => !categorisedTasks.overDue.includes(task)).map((task, index) => <TaskItem task={task} index={index}key={index} />)} </div>}
         {/* Empty Tasks */}
         {sortedTasks.length === 0 && <div className="tasks-container-header">
           <p className="no-tasks-found-message">No Tasks found!</p>
@@ -116,9 +116,9 @@ const TodoList = ({ tasks }) => {
         {/* Completed Tasks */}
         {categorisedTasks.completed.length > 0 && <div className="tasks-container-header">
           <h3>Completed</h3>
-          {categorisedTasks.completed.map((task, index) => <TaskItem task={task} index={index} key={index} />)}</div>}
+          {categorisedTasks.completed.map((task, index) => <TaskItem task={task} index={index}  key={index} />)}</div>}
       </div>
-      <TaskForm key={0} toggle={toggle} modal={modal}
+      <TaskForm key={0} toggle={toggle} modal={modal} 
         defaultTask={defaultTask} type="Create" />
     </>
   );

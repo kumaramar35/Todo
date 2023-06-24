@@ -7,14 +7,12 @@ import Login from "./components/Login";
 import Layout from './components/Layout';
 import RequireAuth from './components/RequireAuth';
 import NotFound from './components/NotFound';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { addTasks } from "./reducers/tasksSlice";
 
 function App() {
-  const tasks = useSelector((state) => state.tasks)
-
-  const dispatch = useDispatch();
-
+  const tasks = useSelector((state)=>state.tasks);
+  const dispatcher = useDispatch()
   const defaultTask = {
     title: "",
     id: null,
@@ -27,12 +25,26 @@ function App() {
     createdAt: null
   };
 
+  // const onCreate = newTask => {
+  //   newTask.title.length > 0 && setTasks([newTask, ...tasks]);
+  // };
+
+  // const onUpdate = (task, id) => {
+  //   let tempList = tasks;
+  //   let index = tasks.findIndex(t => t.id === id);
+  //   tempList[index] = task;
+  //   setTasks([...tempList]);
+  // };
+  // const onDelete = (id) => {
+  //   let tempList = tasks.filter(task => task.id !== id);
+  //   setTasks(tempList);
+  // };
+
   useEffect(() => {
     let arr = localStorage.getItem("tasks");
     if (arr) {
-      dispatch(addTasks(JSON.parse(arr)));
+      dispatcher(addTasks(JSON.parse(arr)));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

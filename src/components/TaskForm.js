@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState , useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import Select from 'react-select'
 import { v4 as uuidv4 } from 'uuid';
@@ -8,9 +8,10 @@ import tags from '../data/tags.json';
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from '../reducers/tasksSlice';
 
-const TaskForm = ({ modal, toggle, task: taskData, defaultTask, type = "Create" }) => {
-  const dispatch = useDispatch();
+const TaskForm = ({ modal, toggle, task: taskData, defaultTask, type = "Create"}) => {
   const [task, setTask] = useState({ ...defaultTask, id: uuidv4() });
+
+  const dispatcher = useDispatch();
 
 
   const handleChange = (e) => {
@@ -32,9 +33,7 @@ const TaskForm = ({ modal, toggle, task: taskData, defaultTask, type = "Create" 
 
   const handleSave = (e) => {
     e.preventDefault()
-    if (task.title.length > 0) {
-      type === "Create" ? dispatch(addTask(task)) : dispatch(updateTask(task))
-    }
+    type === "Create" ? dispatcher(addTask(task)) :dispatcher(updateTask(task));
     toggle()
 
   }

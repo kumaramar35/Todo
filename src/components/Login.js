@@ -23,6 +23,7 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(e)
     if (loginDetails.email === email && loginDetails.password === password) {
       let formData = new FormData(e.currentTarget);
       let email = formData.get("email");
